@@ -1,38 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+body {
+  background-color: #F5F5F5;
+}
+
+body * {
+  font-family: 'Spartan', sans-serif;
+}
+
 .App {
-  text-align: center;
+  width: 90%;
+  max-width: 1500px;
+  padding: 20px;
+  margin: auto;
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(7, auto);
+  grid-template-areas: "pickImage"
+                       "firstInput"
+                       "secondInput"
+                       "topLine"
+                       "bottomLine"
+                       "image"
+                       "button";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App .pickImage, .firstInput, .secondInput, .imageContainer, .topLine, .bottomLine, .buttonContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.App .pickImage {
+  grid-area: pickImage;
+  margin-bottom: 10px;
+}
+
+.App .pickImage select {
+	cursor: pointer;
+  padding: 7px 10px;
+  height: 42px;
+  outline: 0; 
+  border: 0;
+	border-radius: 0;
+	background: #F5F5F5;
+	color: #000000;
+	font-size: 1em;
+  color: black;
+	border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.App .pickImage select:hover {
+  background: white;
+}
+.App .pickImage option {
+  color: black;
+  font-family: tahoma;
+}
+
+.App .firstInput {
+  grid-area: firstInput;
+  margin-bottom: 10px;
+}
+
+.App .secondInput {
+  grid-area: secondInput;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 50px;
+  border-color: rgb(61, 61, 61);
+  background: #F5F5F5;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+input:hover {
+  color: rgb(0, 0, 0);
+  background: white;
+  
+}
+
+.App .imageContainer {
+  grid-area: image;
+}
+
+.App .imageToExport {
+  position: relative;
+}
+
+.App .imageToExport h2 {
+  max-width: 380px;
+  max-height: 380px;
+  overflow-wrap: break-word;
+}
+
+.App .imageToExport .topLine {
+  grid-area: topLine;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
   color: white;
+  text-shadow: 2px 0 0 rgb(0, 0, 0), -2px 0 0 rgb(0, 0, 0), 0 2px 0 rgb(0, 0, 0), 0 -2px 0 rgb(0, 0, 0), 1px 1px rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
-.App-link {
-  color: #61dafb;
+.App .imageToExport .bottomLine {
+  grid-area: bottomLine;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 0 0 rgb(0, 0, 0), -2px 0 0 rgb(0, 0, 0), 0 2px 0 rgb(0, 0, 0), 0 -2px 0 rgb(0, 0, 0), 1px 1px rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.App .imageToExport .image {
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+
+.App .buttonContainer {
+  grid-area: button;
+}
+
+.button {
+  position: absolute;
+	background:linear-gradient(to bottom, #77b55a 5%, #72b352 100%);
+	background-color:#77b55a;
+	border-radius:28px;
+	border:1px solid #53a729;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #5b8a3c;
+}
+
+.button:hover {
+	background:linear-gradient(to bottom, #558d39 5%, #41722a 100%);
+	background-color:#539c2e;
+}
+
+.pickYourMeme {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .App .imageToExport img {
+    width: 300px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .App .imageToExport h2 {
+    max-width: 250px;
+    font-size: 18px;
   }
+}
+
+.visit-me {
+  display: flex;
+  justify-content: center !important;
+  align-items: flex-end !important;
+  position: absolute;
+  left: 0;
+  bottom: 5%;  
+}
+
+.visit-me-link {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Spartan', sans-serif !important;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  text-transform: uppercase;
+  transition: all .2s ease-in;
+}
+
+.visit-me-link:hover {
+  padding-left: 30px;
 }
