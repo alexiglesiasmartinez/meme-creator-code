@@ -196,3 +196,9 @@ input:hover {
 .visit-me-link:hover {
   padding-left: 30px;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.visit-me {
+	    display: none !important;
+	}
+}
